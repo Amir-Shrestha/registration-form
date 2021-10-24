@@ -1,5 +1,6 @@
-div {
+.div_padding {
   padding: 40px 80px;
+  width: 700px;
 }
 form {
   background-color: rgb(241, 241, 241);

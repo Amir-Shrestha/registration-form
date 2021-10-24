@@ -6,66 +6,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration Form</title>
     <link rel="stylesheet" href="main.css">
-
-
   </head>
+
   <body>
-    <div>
+    <div class="div_padding">
       <form action="">
-        <div>
-          <h2><u> Registration Form </u></h2>
-
-          <label for="name">Name : </label>
-          <input type="text" name="name" id="name" /><br /><br />
-
-          <label for="address">Address : </label>
-          <input type="text" name="address" id="address" /><br /><br />
-
-          <label for="phone">Phone : </label>
-          <input type="text" name="phone" id="phone" /><br /><br />
-
-          <label for="dob">DOB : </label>
-          <input type="date" name="dob" id="dob" /><br /><br />
-
-          <label for="gender">Gender : </label>
-          <input type="radio" name="gender" id="male" value="Male" /> Male
-          <input type="radio" name="gender" id="female" value="Female" /> Female
-          <input type="radio" name="gender" id="other" value="Other" /> Other
-          <br /><br />
-
-          <label for="level">Level : </label>
-          <select name="level" required="required">
-            <option value="SEE">SEE</option>
-            <option value="+2">+2</option>
-            <option value="Bachelor">Bachelor</option>
-            <option value="Master">Master</option>
-            <option value="Phd">Phd</option>
-          </select>
-          <br /><br />
-
-          <label>Hobbies : </label>
-          <input type="checkbox" name="sport" value="1" /> Sports
-          <input type="checkbox" name="arts" value="1" /> Arts
-          <input type="checkbox" name="music" value="1" /> Music
-          <input type="checkbox" name="science" value="1" /> Science
-          <input type="text" name="other" /> Other <br /><br />
-
-          <label for="about">About : </label>
-          <br /><textarea
-            type="textarea"
-            rows="5"
-            cols="80"
-            name="about"
-            id="about"
-            placeholder="  write about your self!(not more than 30 words)"
-          ></textarea>
-          <br /><br />
-
-          <button type="submit" class="submit1">Submit</button>
-          <button type="reset" class="reset1" onclick="clearAll()">Reset</button
-          ><!-- ...........type reset will clear all the inputed data by default -->
+        <div class="div_padding">
+          <h2> Registration Form </h2>
+          <table>
+            <tr>
+              <td>
+                <label for="name">Name</label>
+              </td>
+              <td> : </td>
+              <td>
+                <input type="text" name="name" id="name" class="line_breaking"/>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="address">Address</label>
+              </td>
+              <td> : </td>
+              <td>
+                <input type="text" name="address" id="address" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="phone">Phone</label>
+              </td>
+              <td> : </td>
+              <td>
+                <input type="text" name="phone" id="phone" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="dob">DOB</label>
+              </td>
+              <td> : </td>
+              <td>
+                <input type="date" name="dob" id="dob" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="gender">Gender</label>
+              </td>
+              <td> : </td>
+              <td>
+                <input type="radio" name="gender" id="male" value="Male" /> Male
+                <input type="radio" name="gender" id="female" value="Female" /> Female
+                <input type="radio" name="gender" id="other" value="Other" /> Other<br>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="level">Level</label>
+              </td>
+              <td> : </td>
+              <td>
+                <select name="level" required="required">
+                  <option value="SEE">SEE</option>
+                  <option value="+2">+2</option>
+                  <option value="Bachelor">Bachelor</option>
+                  <option value="Master">Master</option>
+                  <option value="Phd">Phd</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="hobbies">Hobbies</label>
+              </td>
+              <td> : </td>
+              <td>
+                <input type="checkbox" name="sport" value="1" /> Sports
+                <input type="checkbox" name="arts" value="1" /> Arts
+                <input type="checkbox" name="music" value="1" /> Music
+                <input type="checkbox" name="science" value="1" /> Science
+                <input type="text" name="other" /> Other
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="about">About</label>
+              </td>
+              <td> : </td>
+              <td>
+                <textarea type="textarea" rows="5" cols="42" name="about" id="about"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td><button type="submit" class="submit1">Submit</button></td>
+              <td><button type="reset" class="reset1" onclick="clearAll()">Reset</button></td>
+            </tr>
+          </table>
         </div>
       </form>
     </div>
   </body>
+
 </html>

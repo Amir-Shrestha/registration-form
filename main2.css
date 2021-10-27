@@ -13,15 +13,18 @@ body{
 .head1{
     margin: 0px;
 }
-input{
-    width: 100%;
+input {
     padding: 8px 16px;
     border-width: 1px;
     border-radius: 5px;
     box-sizing: border-box;
 }
-label{
+.text {
+    width: 100%;
+}
+.label{
     font-weight: bold;
+    display:block;
 }
 .form-control{
     margin: 20px 0px;
@@ -31,5 +34,16 @@ label{
     color:white;
     padding: 8px 18px;
     border-width: 0px;
+    border-radius: 5px;
+}
+.reset-btn{
+    background-color: rgb(110, 20, 20);
+    color:white;
+    padding: 8px 18px;
+    border-width: 0px;
+    border-radius: 5px;
+}
+select{
+    padding: 8px 16px;
     border-radius: 5px;
 }

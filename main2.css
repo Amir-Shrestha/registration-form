@@ -22,6 +22,9 @@ input {
 .text {
     width: 100%;
 }
+input[type="text"]:hover, input[type="number"]:hover, textarea:hover, select:hover{
+    box-shadow: 0 0 0 0.2rem rgb(168, 168, 255);
+}
 input:focus, textarea:focus {
     background-color: rgb(255, 251, 207);
   }
@@ -63,6 +66,7 @@ label{
 .reset-btn:hover{
     background-color:rgb(152, 5, 5);
     box-shadow:  0 0 0 0.2rem rgb(110, 20, 20);
+                /* offset-x | offset-y | blur-radius | spread-radius | color  (16px=1rem)*/
 }
 select{
     width: 200px;
@@ -77,4 +81,6 @@ select:hover{
 textarea{
     border-radius: 5px;
     width: 100%;
+    padding: 16px 32px;
+    box-sizing: border-box;
 }

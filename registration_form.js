@@ -72,41 +72,81 @@ function displayFormData()
 
 
 //3.1 Form Validation Fucntion
+
 function formValidate(naam, address, phone, about, gender, hobbies, level)
   {
     // var message = {name_error:"Name is required.", address_error:"Address is required.", phone_error:"Phone number is required.", about_error:"About Yourself is required.", gender_error:"Gender is required.", hobbies_error:"Hobbies number is required.", level_error:"Level number is required.", };
+    // error = 0;
 
     if (naam == "")
     {
       document.getElementById("name_err").innerHTML="Name is required.";
+      // document.getElementById("name_err").innerHTML=message.name_error;
+      // error = 1;
     }
+    else{
+      document.getElementById("name_err").innerHTML="";
+    }
+
     if (address == "")
     {
       document.getElementById("address_err").innerHTML="Address is required.";
+      // error = 1;
     }
+    else{
+      document.getElementById("address_err").innerHTML="";
+    }
+
     if (phone == "")
     {
       document.getElementById("phone_err").innerHTML="Phone number is required.";
+      // error = 1;
     }
+    else{
+      document.getElementById("phone_err").innerHTML="";
+    }
+
     if (about == "")
     {
       document.getElementById("about_err").innerHTML="About Yourself is required.";
+      // error = 1;
     }
+    else{
+      document.getElementById("about_err").innerHTML="";
+    }
+
     if (gender == undefined)
     {
       document.getElementById("gender_err").innerHTML="Gender is required.";
+      // error = 1;
     }
+    else{
+      document.getElementById("gender_err").innerHTML="";
+    }
+
     if (hobbies == "")
     {
       document.getElementById("hobbies_err").innerHTML="Hobbies is required.";
+      // error = 1;
     }
+    else{
+      document.getElementById("hobbies_err").innerHTML="";
+    }
+
     if (level == "")
     {
       document.getElementById("level_err").innerHTML="Level is required.";
+      // error = 1;
     }
+    else{
+      document.getElementById("level_err").innerHTML="";
+    }
+
+    // if (error == 1)
+    // {
+    //   return false;
+    // }
   }
-
-
 
 
 //Reset

@@ -49,8 +49,8 @@ function submitForm()
   document.getElementById("education_output").innerHTML=params.level;
   document.getElementById("about_output").innerHTML=params.about;
 
+  //3. passed fetched form data to DetialForm
   return false;
-
 
 }
 
@@ -62,45 +62,43 @@ function submitForm()
 //3.1 Form Validation Fucntion
 function formValidate(params)
   {
-    error = 0;
     for (const property in params)
     {
-      // console.log(params[property].length)
-      // console.log("123$.''[[]35".match(/^[a-zA-Z_\s]+$/))
-      // console.log(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(params[property]))
+
+      //required error - empty field validation
       if (params[property] == "" || params[property] == undefined)
       {
         document.getElementById(property+'_err').innerHTML= property +" is required.";
-        // error = 1;
       }
-      else if( property=="name" && params[property].length<5 )
+
+      //minlength error - should contain atleast 5 character
+      else if( (property=="name" || property=="address") && params[property].length<5 )
       {
-        document.getElementById(property+'_err').innerHTML= 'Name should have atleast contain 5 charracters!';
-        // error = 1;
+        if(property=="name"){
+          document.getElementById(property+'_err').innerHTML= "Name should have atleast contain 5 charracters!";
+        }
+        else{
+          document.getElementById(property+'_err').innerHTML= "Address should have atleast contain 5 charracters!";
+        }
       }
+
+      //number_&_specialcharater error - should not contain number_&_specialcharater.
       else if( property=="name" && /[1234567890!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(params[property]) )
       {
         document.getElementById(property+'_err').innerHTML= 'Symbol and Number are not valid inputs.';
-        // error = 1;
       }
       else if( property=="address" && params[property].length<5 )
       {
+        alert('Address should have atleast contain 5 charracters!')
         document.getElementById(property+'_err').innerHTML= 'Address should have atleast contain 5 charracters!';
-        // error = 1;
       }
+
+      //else clear error
       else
       {
         document.getElementById(property+'_err').innerHTML="";
       }
     }
-    // if(error == 1)
-    // {
-    //   return false
-    // }
-    // else
-    // {
-    //   return true
-    // }
   }
 
 

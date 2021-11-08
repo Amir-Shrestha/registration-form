@@ -35,15 +35,9 @@ function displayFormData()
   {
     var hobbies = ""
     var getHobbies = document.getElementsByName("hobbies");
-    console.log("hihi")
-    // console.log(getHobbies)
     for (var hobby of getHobbies) {
       if (hobby.checked)
       hobbies += hobby.value+", ";
-    }
-    // console.log(document.getElementById("other_hobbies").value)
-    if(document.getElementById("other_hobbies").value != null){
-      hobbies += document.getElementById("other_hobbies").value
     }
     return hobbies
   }
@@ -56,6 +50,9 @@ function displayFormData()
     return level;
   }
 
+
+  //2.Form Validation
+  formValidate(naam, address, phone, about, gender, hobbies, level);
 
 
   //3. passed fetched form data to DetialForm
@@ -71,3 +68,53 @@ function displayFormData()
 
 
 
+
+
+
+//3.1 Form Validation Fucntion
+function formValidate(naam, address, phone, about, gender, hobbies, level)
+  {
+    var message = "";
+    var error = 0;
+
+    if (naam == "")
+    {
+      message += "Name is required. <br>";
+      error = 1;
+    }
+    if (address == "")
+    {
+      message+= "Address is required. <br>";
+      error = 1;
+    }
+    if (phone == "")
+    {
+      message+= "Phone number is required. <br>";
+      error = 1;
+    }
+    if (about == "")
+    {
+      message += "About Yourself is required. <br>";
+      error = 1;
+    }
+    if (gender == undefined)
+    {
+      message+= "Gender is required. <br>";
+      error = 1;
+    }
+    if (hobbies == "")
+    {
+      message+= "Hobbies number is required. <br>";
+      error = 1;
+    }
+    if (level == "")
+    {
+      message+= "Level number is required. <br>";
+      error = 1;
+    }
+    if (error == 1)
+    {
+      document.getElementById("errorpara").innerHTML = message;
+      return false;
+    }
+  }

@@ -74,47 +74,45 @@ function displayFormData()
 //3.1 Form Validation Fucntion
 function formValidate(naam, address, phone, about, gender, hobbies, level)
   {
-    var message = "";
-    var error = 0;
-
+    error = 0;
     if (naam == "")
     {
-      message += "Name is required. <br>";
+      document.getElementById("name_err").innerHTML="Name is required.";
       error = 1;
     }
     if (address == "")
     {
-      message+= "Address is required. <br>";
+      document.getElementById("address_err").innerHTML="Address is required.";
       error = 1;
     }
     if (phone == "")
     {
-      message+= "Phone number is required. <br>";
+      document.getElementById("phone_err").innerHTML="Phone number is required.";
       error = 1;
     }
     if (about == "")
     {
-      message += "About Yourself is required. <br>";
+      document.getElementById("about_err").innerHTML="About Yourself is required.";
       error = 1;
     }
     if (gender == undefined)
     {
-      message+= "Gender is required. <br>";
+      document.getElementById("gender_err").innerHTML="Gender is required.";
       error = 1;
     }
     if (hobbies == "")
     {
-      message+= "Hobbies number is required. <br>";
+      document.getElementById("hobbies_err").innerHTML="Hobbies is required.";
       error = 1;
     }
     if (level == "")
     {
-      message+= "Level number is required. <br>";
+      document.getElementById("level_err").innerHTML="Level is required.";
       error = 1;
     }
     if (error == 1)
     {
-      document.getElementById("errorpara").innerHTML = message;
       return false;
     }
   }
+

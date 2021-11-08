@@ -1,14 +1,16 @@
-function displayFormData()
+function submitForm()
 {
 
   //1.fetech data filled in form
-  var naam = document.getElementById("name").value;
-  var address = document.getElementById("address").value;
-  var phone = document.getElementById("phone").value;
-  var about = document.getElementById("about").value;
-  var gender = genderCheck();
-  var hobbies = hobbiesCheck();
-  var level = educationCheck();
+  const params = {
+    name : document.getElementById("name").value,
+    address : document.getElementById("address").value,
+    phone : document.getElementById("phone").value,
+    about : document.getElementById("about").value,
+    gender : genderCheck(),
+    hobbies : hobbiesCheck(),
+    level : educationCheck()
+  }
 
   function genderCheck()
   {
@@ -17,19 +19,6 @@ function displayFormData()
         return getGender.value;
     }
   }
-
-  // function genderCheck()
-  // {
-  //   var getGender = document.getElementsByName("gender");
-  //   if(getGender != null) {
-  //       // return typeof(getGender);
-  //       // return getGender;
-  //       // return getGender[0];
-  //       // return typeof(getGender[0]);
-  //       return getGender[0].value;
-  //       // return typeof(getGender).value;
-  //   }
-  // }
 
   function hobbiesCheck()
   {
@@ -50,20 +39,33 @@ function displayFormData()
     return level;
   }
 
-
   //2.Form Validation
-  formValidate(naam, address, phone, about, gender, hobbies, level);
+  formValidate(params)
+  document.getElementById("name_output").innerHTML=params.name;
+  document.getElementById("address_output").innerHTML=params.address;
+  document.getElementById("phone_output").innerHTML=params.phone;
+  document.getElementById("gender_output").innerHTML=params.gender;
+  document.getElementById("hobbiese_output").innerHTML=params.hobbies;
+  document.getElementById("education_output").innerHTML=params.level;
+  document.getElementById("about_output").innerHTML=params.about;
+
+
+  // //2.Form Validation
+  // if(formValidate(params)) {
+  //   document.getElementById("name_output").innerHTML=params.name;
+  //   document.getElementById("address_output").innerHTML=params.address;
+  //   document.getElementById("phone_output").innerHTML=params.phone;
+  //   document.getElementById("gender_output").innerHTML=params.gender;
+  //   document.getElementById("hobbiese_output").innerHTML=params.hobbies;
+  //   document.getElementById("education_output").innerHTML=params.level;
+  //   document.getElementById("about_output").innerHTML=params.about;
+  // }
 
 
   //3. passed fetched form data to DetialForm
-  document.getElementById("name_output").innerHTML=naam;
-  document.getElementById("address_output").innerHTML=address;
-  document.getElementById("phone_output").innerHTML=phone;
-  document.getElementById("gender_output").innerHTML=gender;
-  document.getElementById("hobbiese_output").innerHTML=hobbies;
-  document.getElementById("education_output").innerHTML=level;
-  document.getElementById("about_output").innerHTML=about;
   return false;
+
+  
 }
 
 
@@ -72,30 +74,31 @@ function displayFormData()
 
 
 //3.1 Form Validation Fucntion
-function formValidate(naam, address, phone, about, gender, hobbies, level)
+function formValidate(params)
   {
-    // var message = {name_error:"Name is required.", address_error:"Address is required.", phone_error:"Phone number is required.", about_error:"About Yourself is required.", gender_error:"Gender is required.", hobbies_error:"Hobbies number is required.", level_error:"Level number is required.", };
-    var messages = ["Name is required.", "Address is required.", "Phone number is required.", "About Yourself is required.", "Gender is required.", "Hobbies number is required.", "Level number is required."];
-    var conditions = [naam == "", address == "", phone == "", about == "", gender == undefined, hobbies == "", level == ""]
-    var error_paragrapghs = ["name_err", "address_err", "phone_err", "about_err", "gender_err", "hobbies_err", "level_err"]
     // error = 0;
-
-    for (let i = 0; i < 7; i++) {
-      if (conditions[i])
+    for (const property in params)
+    {
+      if (params[property] == "" || params[property] == undefined)
       {
-        document.getElementById(error_paragrapghs[i]).innerHTML=messages[i];
+        document.getElementById(property+'_err').innerHTML= property +" is required.";
         // error = 1;
       }
-      else{
-        document.getElementById(error_paragrapghs[i]).innerHTML="";
+      else
+      {
+        document.getElementById(property+'_err').innerHTML="";
       }
     }
-
-    // if (naam == "" || address == "" || phone == "" || about == "" || gender == ""|| hobbies == "" || level == ""){
-    //   error = 1;
-    //   return false;
+    // if(error == 1)
+    // {
+    //   return false
+    // }
+    // else
+    // {
+    //   return true
     // }
   }
+
 
 //Reset
 function clearAll()

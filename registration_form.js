@@ -49,23 +49,9 @@ function submitForm()
   document.getElementById("education_output").innerHTML=params.level;
   document.getElementById("about_output").innerHTML=params.about;
 
-
-  // //2.Form Validation
-  // if(formValidate(params)) {
-  //   document.getElementById("name_output").innerHTML=params.name;
-  //   document.getElementById("address_output").innerHTML=params.address;
-  //   document.getElementById("phone_output").innerHTML=params.phone;
-  //   document.getElementById("gender_output").innerHTML=params.gender;
-  //   document.getElementById("hobbiese_output").innerHTML=params.hobbies;
-  //   document.getElementById("education_output").innerHTML=params.level;
-  //   document.getElementById("about_output").innerHTML=params.about;
-  // }
-
-
-  //3. passed fetched form data to DetialForm
   return false;
 
-  
+
 }
 
 
@@ -76,12 +62,30 @@ function submitForm()
 //3.1 Form Validation Fucntion
 function formValidate(params)
   {
-    // error = 0;
+    error = 0;
     for (const property in params)
     {
+      // console.log(params[property].length)
+      // console.log("123$.''[[]35".match(/^[a-zA-Z_\s]+$/))
+      // console.log(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(params[property]))
       if (params[property] == "" || params[property] == undefined)
       {
         document.getElementById(property+'_err').innerHTML= property +" is required.";
+        // error = 1;
+      }
+      else if( property=="name" && params[property].length<5 )
+      {
+        document.getElementById(property+'_err').innerHTML= 'Name should have atleast contain 5 charracters!';
+        // error = 1;
+      }
+      else if( property=="name" && /[1234567890!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(params[property]) )
+      {
+        document.getElementById(property+'_err').innerHTML= 'Symbol and Number are not valid inputs.';
+        // error = 1;
+      }
+      else if( property=="address" && params[property].length<5 )
+      {
+        document.getElementById(property+'_err').innerHTML= 'Address should have atleast contain 5 charracters!';
         // error = 1;
       }
       else
